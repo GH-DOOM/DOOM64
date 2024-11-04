@@ -1,0 +1,5 @@
+keyboard
+selenium
+pyautogui
+PyGetWindow
+python-dotenv
