@@ -1,11 +1,9 @@
 from re import match as rematch
-from selenium import webdriver
 from dotenv import load_dotenv
 from api.methods import *
 import pygetwindow as gw
 from os import getenv
 import pyautogui
-import win32gui
 import keyboard
 
 load_dotenv()
@@ -29,14 +27,11 @@ if window_name == "":
     print("If yes, change DOOM_REGEX in .env")
     exit()
 
-hwnd = win32gui.FindWindow(None, window_name)
+window = gw.getWindowsWithTitle(window_name)[0]
 def getScreenshot():
-    left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-    width = right - left
-    height = bottom - top
-
-    screenshot = pyautogui.screenshot(region=(left+10, top+40, width-20, height-50))
-    return screenshot.resize((52, 7))
+    left, top, width, height = window.left, window.top, window.width, window.height
+    img = pyautogui.screenshot(region=(left + 8, top + 31, width - 16, height - 39))
+    return img.resize((52, 7))
 
 exit_key = getenv("EXIT_KEY")
 while True:
