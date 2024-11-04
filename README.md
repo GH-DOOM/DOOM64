@@ -1,5 +1,5 @@
 # DOOM on Contribution Graph
-![Banner on graph](/assets/brand_on_graph.png)
+![Banner on graph](/assets/banner_on_graph.png)
 
 ## Requirements
 - DOOM 64 <sub>(tested on Epic Games version)</sub>
